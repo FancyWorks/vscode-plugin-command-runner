@@ -2,7 +2,7 @@
   "name": "stringcopilot",
   "displayName": "StringCopilot",
   "description": "a string regexp tool",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.54.0"
   },
