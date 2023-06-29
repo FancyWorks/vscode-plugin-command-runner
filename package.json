@@ -3,6 +3,7 @@
   "displayName": "StringCopilot",
   "description": "a string regexp tool",
   "publisher": "FancyWorks", 
+  "repository": "https://github.com/FancyWorks/StringCopilot",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.54.0"
