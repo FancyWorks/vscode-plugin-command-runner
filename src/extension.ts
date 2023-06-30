@@ -17,7 +17,29 @@ export function activate(context: vscode.ExtensionContext) {
     () => {
       // The code you place here will be executed every time your command is executed
       // Display a message box to the user
-      vscode.window.showInformationMessage("Hello World from StringCopilot! Ken");
+      // vscode.window.showInformationMessage(
+      //   "Hello World from StringCopilot! Ken"
+      // );
+      // 获取当前打开的编辑器
+      const editor = vscode.window.activeTextEditor;
+
+      if (editor) {
+        // 获取当前选区
+        const selection = editor.selection;
+
+        // 如果选区不为空，则获取选中文本
+        if (!selection.isEmpty) {
+          // 1. 获取选中文本
+          const selectedText = editor.document.getText(selection);
+
+          // 加工文本
+
+          // 3. 复制到剪贴板
+          vscode.env.clipboard.writeText(selectedText).then(() => {
+            console.log("Text copied to clipboard");
+          });
+        }
+      }
     }
   );
 
