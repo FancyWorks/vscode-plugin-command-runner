@@ -1,6 +1,9 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
+import * as path from "path";
+import * as fs from "fs";
 import * as vscode from "vscode";
+import { readConfig } from "./config";
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -9,37 +12,43 @@ export function activate(context: vscode.ExtensionContext) {
   // This line of code will only be executed once when your extension is activated
   console.log('Congratulations, your extension "stringcopilot" is now active!');
 
+  const workspacePath: any =
+    vscode.workspace.workspaceFolders?.[0]?.uri?.fsPath;
+  console.log("111", workspacePath);
+
+  let configJson: any;
+
+  if (workspacePath) {
+    // 读取 test.json 文件的内容
+    const filePath = path.join(workspacePath, "string-copilot.json");
+    try {
+      const fileContent = fs.readFileSync(filePath, "utf-8");
+      // 将文件内容转换为 JSON 对象
+      configJson = JSON.parse(fileContent);
+      console.log("test.json data:", configJson?.[0]?.jsModule);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
   let disposable = vscode.commands.registerCommand(
-    "stringcopilot.helloWorld",
-    () => {
+    "stringcopilot.showCmds",
+    async () => {
       // The code you place here will be executed every time your command is executed
       // Display a message box to the user
       // vscode.window.showInformationMessage(
       //   "Hello World from StringCopilot! Ken"
       // );
-      // 获取当前打开的编辑器
+      const filename = path.join(workspacePath, configJson?.[0]?.jsModule);
+      console.log(filename);
+      const func = (await import(filename)).default;
+      console.log(func.toString());
+
       const editor = vscode.window.activeTextEditor;
-
-      if (editor) {
-        // 获取当前选区
-        const selection = editor.selection;
-
-        // 如果选区不为空，则获取选中文本
-        if (!selection.isEmpty) {
-          // 1. 获取选中文本
-          const selectedText = editor.document.getText(selection);
-
-          // 加工文本
-
-          // 3. 复制到剪贴板
-          vscode.env.clipboard.writeText(selectedText).then(() => {
-            console.log("Text copied to clipboard");
-          });
-        }
-      }
+      func({ vscode, editor });
     }
   );
 

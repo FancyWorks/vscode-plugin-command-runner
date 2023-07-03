@@ -16,8 +16,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "stringcopilot.helloWorld",
-        "title": "Hello World"
+        "command": "stringcopilot.showCmds",
+        "title": "StringCopilot: Show Commands"
       }
     ]
   },
