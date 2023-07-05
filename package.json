@@ -19,6 +19,14 @@
         "command": "stringcopilot.showCmds",
         "title": "StringCopilot: Show Commands"
       }
+    ],
+    "keybindings": [
+      {
+        "command": "stringcopilot.showCmds",
+        "key": "cmd+e",
+        "win": "ctrl+e",
+        "when": "editorTextFocus"
+      }
     ]
   },
   "scripts": {
