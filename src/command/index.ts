@@ -1,4 +1,5 @@
 import { jsonConfigLabels, jsonConfigMap } from "../config";
+import { pathJoin } from "../utils";
 
 export function initCommand({ vscode, context }: any) {
   let disposable = vscode.commands.registerCommand(
@@ -8,8 +9,14 @@ export function initCommand({ vscode, context }: any) {
         .showQuickPick(jsonConfigLabels, {
           placeHolder: "Select a script",
         })
-        .then((selectedLabel: string) => {
-          jsonConfigMap[selectedLabel]?.script?.({ vscode });
+        .then(async (selectedLabel: string) => {
+          const config = jsonConfigMap[selectedLabel];
+          if (!config) {
+            return;
+          }
+          const scriptFilename = pathJoin(config.jsModule);
+          const func = (await import(scriptFilename)).default;
+          func({ vscode });
         });
     }
   );
