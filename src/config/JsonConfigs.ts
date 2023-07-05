@@ -15,7 +15,6 @@ export let jsonConfigLabels: string[] = [];
 export let jsonConfigMap: Record<string, JsonConfig> = {};
 
 export async function readJsonConfig(filename: string) {
-  console.log("readJsonConfig", filename);
   if (await isFileExist(filename)) {
     jsonConfigs = readFileAsJson(filename);
     jsonConfigLabels = jsonConfigs.map((o) => o.label);
@@ -33,7 +32,6 @@ export async function readJsonConfig(filename: string) {
 export function startWatchJsonConfig() {
   const jsonConfigFilename = pathJoin("string-copilot.json");
   watcher = watch(jsonConfigFilename, (event: string, filename: string) => {
-    console.log(event, filename);
     readJsonConfig(filename);
   });
 }
