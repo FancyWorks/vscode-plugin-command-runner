@@ -4,9 +4,9 @@ export async function isFileExist(filename: string) {
   return new Promise((resolve, reject) => {
     fs.access(filename, fs.constants.R_OK, (err) => {
       if (err) {
-        resolve(true);
-      } else {
         resolve(false);
+      } else {
+        resolve(true);
       }
     });
   });
