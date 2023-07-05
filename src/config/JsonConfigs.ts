@@ -1,4 +1,9 @@
-import { createWatcher, isFileExist, pathJoin, readFileAsJson, watch } from "../utils";
+import {
+  isFileExist,
+  pathJoin,
+  readFileAsJson,
+  watch,
+} from "../utils";
 
 interface JsonConfig {
   label: string;
@@ -6,7 +11,6 @@ interface JsonConfig {
 }
 
 let jsonConfigWatcher: any;
-let scriptsWatcher: any;
 
 // string-copilot.json
 export let jsonConfigs: JsonConfig[] = [];
@@ -14,9 +18,6 @@ export let jsonConfigLabels: string[] = [];
 export let jsonConfigMap: Record<string, JsonConfig> = {};
 
 export async function readJsonConfig(filename: string) {
-  // await scriptsWatcher?.close();
-  // scriptsWatcher = createWatcher(_parseScript);
-
   if (await isFileExist(filename)) {
     jsonConfigs = readFileAsJson(filename);
     jsonConfigLabels = jsonConfigs.map((o) => o.label);
@@ -43,9 +44,4 @@ export function startWatchJsonConfig() {
 
 export async function stopWatchJsonConfig() {
   await jsonConfigWatcher?.close();
-  await scriptsWatcher?.close();
-}
-
-function _parseScript(filename: string) {
-
 }
