@@ -12,8 +12,9 @@
   "engines": {
     "vscode": "^1.54.0"
   },
+  "icon": "icon.png",
   "categories": [
-    "Other"
+    "JS Command"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
