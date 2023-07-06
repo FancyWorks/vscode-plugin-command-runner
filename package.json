@@ -14,7 +14,7 @@
   },
   "icon": "icon.png",
   "categories": [
-    "JS Command"
+    "Other"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
