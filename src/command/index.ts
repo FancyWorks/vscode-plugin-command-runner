@@ -18,6 +18,12 @@ export function initCommand({ vscode, context }: any) {
           const content = readFile(scriptFilename);
           const func = eval(content);
           func?.({ vscode });
+
+          jsonConfigLabels.splice(
+            jsonConfigLabels.findIndex((s) => s === selectedLabel),
+            1
+          );
+          jsonConfigLabels.unshift(selectedLabel);
         });
     }
   );
