@@ -1,6 +1,6 @@
 {
   "name": "vscode-plugin-command-runner",
-  "displayName": "Command Runner",
+  "displayName": "JS Command Runner",
   "description": "a js command tool",
   "publisher": "FancyWorks",
   "repository": "https://github.com/FancyWorks/vscode-plugin-command-runner",
