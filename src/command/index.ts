@@ -1,5 +1,5 @@
 import { jsonConfigLabels, jsonConfigMap } from "../config";
-import { pathJoin } from "../utils";
+import { pathJoin, readFile } from "../utils";
 
 export function initCommand({ vscode, context }: any) {
   let disposable = vscode.commands.registerCommand(
@@ -15,8 +15,9 @@ export function initCommand({ vscode, context }: any) {
             return;
           }
           const scriptFilename = pathJoin(config.jsModule);
-          const func = (await import(scriptFilename)).default;
-          func({ vscode });
+          const content = readFile(scriptFilename);
+          const func = eval(content);
+          func?.({ vscode });
         });
     }
   );
