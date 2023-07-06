@@ -1,9 +1,4 @@
-import {
-  isFileExist,
-  pathJoin,
-  readFileAsJson,
-  watch,
-} from "../utils";
+import { isFileExist, pathJoin, readFileAsJson, watch } from "../utils";
 
 interface JsonConfig {
   label: string;
@@ -44,4 +39,14 @@ export function startWatchJsonConfig() {
 
 export async function stopWatchJsonConfig() {
   await jsonConfigWatcher?.close();
+}
+
+export function raiseLabel(label: string) {
+  if (!jsonConfigLabels.includes(label)) return;
+
+  jsonConfigLabels.splice(
+    jsonConfigLabels.findIndex((s) => s === label),
+    1
+  );
+  jsonConfigLabels.unshift(label);
 }

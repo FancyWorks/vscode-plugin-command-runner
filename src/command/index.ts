@@ -1,4 +1,4 @@
-import { jsonConfigLabels, jsonConfigMap } from "../config";
+import { jsonConfigLabels, jsonConfigMap, raiseLabel } from "../config";
 import { pathJoin, readFile } from "../utils";
 
 export function initCommand({ vscode, context }: any) {
@@ -19,11 +19,7 @@ export function initCommand({ vscode, context }: any) {
           const func = eval(content);
           func?.({ vscode });
 
-          jsonConfigLabels.splice(
-            jsonConfigLabels.findIndex((s) => s === selectedLabel),
-            1
-          );
-          jsonConfigLabels.unshift(selectedLabel);
+          raiseLabel(selectedLabel);
         });
     }
   );
