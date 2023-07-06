@@ -1,9 +1,13 @@
 {
-  "name": "stringcopilot",
-  "displayName": "StringCopilot",
-  "description": "a string regexp tool",
+  "name": "vscode-plugin-command-runner",
+  "displayName": "Command Runner",
+  "description": "a js command tool",
   "publisher": "FancyWorks",
-  "repository": "https://github.com/FancyWorks/StringCopilot",
+  "repository": "https://github.com/FancyWorks/vscode-plugin-command-runner",
+  "author": {
+    "name": "Ken",
+    "email": "kytogether@vip.qq.com"
+  },
   "version": "0.0.2",
   "engines": {
     "vscode": "^1.54.0"
@@ -16,13 +20,13 @@
   "contributes": {
     "commands": [
       {
-        "command": "stringcopilot.showCmds",
-        "title": "StringCopilot: Show Commands"
+        "command": "vscode-plugin-command-runner.showCmds",
+        "title": "Command Runner: Show Commands"
       }
     ],
     "keybindings": [
       {
-        "command": "stringcopilot.showCmds",
+        "command": "vscode-plugin-command-runner.showCmds",
         "key": "cmd+e",
         "win": "ctrl+e",
         "when": "editorTextFocus"

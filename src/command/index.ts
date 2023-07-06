@@ -3,7 +3,7 @@ import { pathJoin, readFile } from "../utils";
 
 export function initCommand({ vscode, context }: any) {
   let disposable = vscode.commands.registerCommand(
-    "stringcopilot.showCmds",
+    "vscode-plugin-command-runner.showCmds",
     async () => {
       vscode.window
         .showQuickPick(jsonConfigLabels, {

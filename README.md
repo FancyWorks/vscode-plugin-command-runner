@@ -1,10 +1,10 @@
-# stringcopilot README
+# vscode-plugin-command-runner README
 
-string regexp tool
+a js command tool, you can use vscode functionality with js code
 
 ## Features
 
-string regexp tool
+None
 
 ## Requirements
 

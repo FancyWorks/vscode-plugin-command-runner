@@ -7,7 +7,7 @@ interface JsonConfig {
 
 let jsonConfigWatcher: any;
 
-// string-copilot.json
+// command-runner.json
 export let jsonConfigs: JsonConfig[] = [];
 export let jsonConfigLabels: string[] = [];
 export let jsonConfigMap: Record<string, JsonConfig> = {};
@@ -28,7 +28,7 @@ export async function readJsonConfig(filename: string) {
 }
 
 export function startWatchJsonConfig() {
-  const jsonConfigFilename = pathJoin("string-copilot.json");
+  const jsonConfigFilename = pathJoin("command-runner.json");
   jsonConfigWatcher = watch(
     jsonConfigFilename,
     (event: string, filename: string) => {
