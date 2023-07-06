@@ -86,7 +86,7 @@ async ({ vscode }) => {
 
 > a. 输入命令, `> Command Runner: ShowCommands` 或者 快捷键 Cmd+E(mac), Ctrl+E(win), 可以打开脚本菜单
 
-![脚本菜单](res/scripts.png)
+![脚本菜单](res/gen-form-item.png)
 > b. 选择脚本, 回车就可以执行
 
 
