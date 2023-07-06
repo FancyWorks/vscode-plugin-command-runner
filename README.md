@@ -4,7 +4,7 @@
 
 ## 示例
 
-<video src="res/gen-form-item.mp4" controls title="Title"></video>
+<video src="https://github.com/FancyWorks/vscode-plugin-command-runner/blob/main/res/gen-form-item.mp4?raw=true" controls title="Title"></video>
 
 ## 示例配置如下
 
@@ -21,12 +21,13 @@
 
 - 2. 然后创建对应的目录和文件
 
-![./commands/GenFormItem.js](res/command-js.png)
+![./commands/GenFormItem.js](https://github.com/FancyWorks/vscode-plugin-command-runner/blob/main/res/command-js.png?raw=true)
 
 - 3. js 脚本的内容
 
-示例脚本功能: 
-> 解析光标当前行的文本, 生成FormItem
+示例脚本功能:
+
+> 解析光标当前行的文本, 生成 FormItem
 
 ```js
 // GenFormItem.js
@@ -86,13 +87,13 @@ async ({ vscode }) => {
 
 > a. 输入命令, `> Command Runner: ShowCommands` 或者 快捷键 Cmd+E(mac), Ctrl+E(win), 可以打开脚本菜单
 
-![脚本菜单](res/scripts.png)
-> b. 选择脚本, 回车就可以执行
+![脚本菜单](https://github.com/FancyWorks/vscode-plugin-command-runner/blob/main/res/scripts.png?raw=true)
 
+> b. 选择脚本, 回车就可以执行
 
 ## Features
 
-可运行js脚本
+可运行 js 脚本
 
 ## Requirements
 
